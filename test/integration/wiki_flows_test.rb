@@ -6,7 +6,6 @@ class WikiFlowsTest < ActionDispatch::IntegrationTest
 
   test "whole_wiki" do
     ActiveRecord::Base.connection.execute("TRUNCATE TABLE wiki_pages")
-    ActiveRecord::Base.connection.execute("TRUNCATE TABLE wiki_page_versions")
     ActiveRecord::Base.connection.execute("TRUNCATE TABLE audits")
     
     get "/"
