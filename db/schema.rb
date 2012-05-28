@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20120515054006) do
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
+  create_table "online_records", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_records", ["key"], :name => "index_online_records_on_key"
+  add_index "online_records", ["user_id"], :name => "index_online_records_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "name",                      :default => "", :null => false
     t.string   "hashed_password",           :default => "", :null => false
